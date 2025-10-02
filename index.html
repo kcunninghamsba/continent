@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Find My Continent</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+      background-color: #f0f8ff;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    input, button {
+      font-size: 1.2em;
+      padding: 10px;
+      margin-top: 10px;
+    }
+
+    #result {
+      margin-top: 30px;
+      font-size: 2em;
+      color: #2e8b57;
+    }
+  </style>
+</head>
+<body>
+  <h1>Which Continent Is My Country In?</h1>
+  <input type="text" id="countryInput" placeholder="Type your country..." />
+  <button onclick="findContinent()">Find Continent</button>
+  <div id="result"></div>
+
+  <script>
+    const countryToContinent = {
+      "united states": "North America",
+      "canada": "North America",
+      "mexico": "North America",
+      "brazil": "South America",
+      "argentina": "South America",
+      "france": "Europe",
+      "germany": "Europe",
+      "nigeria": "Africa",
+      "egypt": "Africa",
+      "china": "Asia",
+      "japan": "Asia",
+      "india": "Asia",
+      "australia": "Australia",
+      "new zealand": "Australia",
+      "south africa": "Africa",
+      "russia": "Europe/Asia",
+      "saudi arabia": "Asia",
+      "united kingdom": "Europe",
+      "spain": "Europe",
+      "italy": "Europe",
+      "indonesia": "Asia",
+      "sweden": "Europe",
+      "ireland": "Europe",
+      "chile": "South America",
+      "peru": "South America",
+      "belgium": "Europe",
+      "ecuador": "South America",
+      "north macedonia": "Europe",
+      "portugal": "Europe",
+      "poland": "Europe"
+      // You can add more countries here
+    };
+
+    function findContinent() {
+      const input = document.getElementById("countryInput").value.trim().toLowerCase();
+      const continent = countryToContinent[input];
+
+      const resultDiv = document.getElementById("result");
+      if (continent) {
+        resultDiv.textContent = `Continent: ${continent}`;
+      } else {
+        resultDiv.textContent = "Sorry, I don't know that country!";
+      }
+    }
+  </script>
+</body>
+</html>
